@@ -7,7 +7,6 @@ import sys
 import bsod
 
 print(f"Hello EagletOS version {metadata.EAGLETOS_VERSION}")
-os.chdir(os.path.dirname(__file__))
 
 print("Setting up environment variables...")
 def parse_kernel_args(args):
@@ -35,7 +34,15 @@ division_subp = []
 for division in postkrnl_conf.DIVISIONS:
     print(f"Spawning {division}")
     try:
-        division_subp.append(subprocess.Popen([sys.executable, f"{division}.py"]))
+        bsod2 = os.environ.get("bsod")
+        bsod.file_bsod("devinit_exit.md", {
+            "COMPARTMENT": division,
+            "EXIT_CODE": -32768
+        })
+    except KeyError:
+        print("BSOD test not specified")
+    try:
+        division_subp.append(subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), f"{division}.py")]))
     except OSError:
         bsod.file_bsod("devinit_exit.md", {
             "COMPARTMENT": division,
