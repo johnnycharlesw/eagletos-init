@@ -1,4 +1,4 @@
-An unauthorized attempt to access recovery mode was detected and EagletOS has shut down to prevent further legal problems.
+An unauthorized attempt to access recovery mode was detected and EagletOS has shut down to prevent potential legal problems.
 
 If you see this error again, try asking your administrator to do what you were trying to do, doing it using the privileges you have, or reporting the seller to the platform if this computer might be stolen. 
 
