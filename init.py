@@ -33,14 +33,14 @@ print("Launching userland compartments...")
 division_subp = []
 for division in postkrnl_conf.DIVISIONS:
     print(f"Spawning {division}")
-    try:
-        bsod2 = os.environ.get("bsod")
+
+    bsod2 = os.environ.get("bsod")
+    if bsod2 != None:
         bsod.file_bsod("devinit_exit.md", {
             "COMPARTMENT": division,
             "EXIT_CODE": -32768
         })
-    except KeyError:
-        print("BSOD test not specified")
+    
     try:
         division_subp.append(subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), f"{division}.py")]))
     except OSError:
