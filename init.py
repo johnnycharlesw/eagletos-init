@@ -6,8 +6,8 @@ import os
 import sys
 import bsod
 
-
 print(f"Hello EagletOS version {metadata.EAGLETOS_VERSION}")
+os.chdir(os.path.dirname(__file__))
 
 print("Setting up environment variables...")
 def parse_kernel_args(args):
