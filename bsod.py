@@ -21,6 +21,7 @@ def _bsod(message):
     for i in range(1,(shutil.get_terminal_size().lines) - len(message.split("\n"))):
         print()
     
+    print("\x1b[44m\x1b[37m",end="")
     while True:
         time.sleep(3600)
 
@@ -32,7 +33,7 @@ A problem happened and {metadata.EAGLETOS_NAME} has shut down to prevent further
     """, variables))
 
 def file_bsod(template_path, variables):
-    path = os.path.join("error_messages", template_path)
+    path = os.path.join(os.path.dirname(__file__), "error_messages", template_path)
 
     with open(path, "r", encoding="utf-8") as file:
         template = file.read()
