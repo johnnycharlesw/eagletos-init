@@ -46,7 +46,7 @@ def main():
             })
         
         try:
-            division_subp.append(subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), f"{division}.py")]))
+            division_subp.append(subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), f"{division}", "__main__.py")]))
         except OSError:
             bsod.file_bsod("devinit_exit.md", {
                 "COMPARTMENT": division,

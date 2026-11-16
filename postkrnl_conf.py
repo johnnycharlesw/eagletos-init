@@ -1,4 +1,5 @@
 import os
+import metadata
 LOCALE = "en_US"
 
 def genpathvar(paths):
@@ -21,5 +22,7 @@ ENVIRON_VARIABLES={
     ]),
     "SHELL": "/usr/bin/pysh",
     "PWD": os.getcwd(),
-    "LANG": LOCALE+".UTF-8"
+    "LANG": LOCALE+".UTF-8",
+    "EAGLETOS_NAME": metadata.EAGLETOS_NAME,
+    "EAGLETOS_VERSION":str(metadata.EAGLETOS_VERSION)
 }
